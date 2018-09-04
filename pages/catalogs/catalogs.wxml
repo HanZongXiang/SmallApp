@@ -1,0 +1,4 @@
+<!--pages/catalogs/catalogs.wxml-->
+<view class='container'>
+  <view class='catalogs'></view>
+</view>

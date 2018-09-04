@@ -1,0 +1,4 @@
+/* pages/catalogs/catalogs.wxss */
+.container{
+  padding:40rpx 40rpx 100rpx 40rpx;
+}

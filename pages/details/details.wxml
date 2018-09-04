@@ -1,0 +1,39 @@
+<view class='details'>
+  <view class='book-details'>
+    <view class='book-top'>
+      <image src='{{bookData.img}}'></image>
+      <view class='main-msg'>
+        <view class='title'>{{bookData.title}}</view>
+        <view class='author-name'>作者：{{bookData.author}}</view>
+        <view class='looknums'>{{bookData.looknums}}人在看</view>
+        <view class='likenums'>{{bookData.startsnums}}人喜欢</view>
+      </view>
+    </view>
+    <view class='book-bottom'>
+      <button class='btn'>
+      收藏
+      </button>
+      <button class='btn'>
+      分享好友
+      </button>
+    </view>
+  </view>
+  <view class='divider'></view>
+  <view class='book-desc container'>
+    <view class='title'>简介</view>
+    <view class='desc-main'>{{bookData.desc}}</view>
+  </view>
+  <view class='book-catalog'>
+    <view class='box-left'>
+      <view class='show-catalog'>查看目录</view>
+      <view class='catalogs'>共{{book.length}}章</view>
+    </view>
+    <view class='box-right'>
+      <view class='update-time'>更新于两天前></view>
+    </view>
+  </view>
+  <view class='divider'></view>
+  <view class='btn-wrap'>
+    <button class='btn' bindtap="jumpCatalogs" data-id="{{bookId}}">阅读该书籍</button>
+  </view>
+</view>
