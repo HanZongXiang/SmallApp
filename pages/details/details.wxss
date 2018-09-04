@@ -11,7 +11,6 @@
 
 .book-top{
   display: flex;
-  justify-content: space-between;
 }
 
 .book-top image{
@@ -23,7 +22,8 @@
   display: flex;
   flex-direction: column;
   padding-bottom:20rpx;
-  margin-right: 10px;
+  margin-top:20rpx;
+  margin-left: 40rpx;
   justify-content: space-around;
   color:#555;
   font-size: 24rpx;

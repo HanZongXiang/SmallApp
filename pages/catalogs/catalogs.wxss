@@ -1,4 +1,17 @@
 /* pages/catalogs/catalogs.wxss */
 .container{
-  padding:40rpx 40rpx 100rpx 40rpx;
+  margin:0;
+  padding-top:40rpx;
+  padding-bottom: 100rpx;
+  font-size: 28rpx;
+  color:#000;
+}
+
+.catalog-wrap{
+  padding-left: 20rpx;
+  border-bottom:2rpx solid #333;
+}
+
+.catalog .catalog-title{
+  line-height: 2;
 }

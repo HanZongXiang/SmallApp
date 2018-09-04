@@ -8,17 +8,26 @@ Page({
     swiperData: [],
     mainContent:[],
     indicatorDots: true,
-    duration: 1000
+    duration: 1000,
+    isLoading:false
   },
   onLoad: function () {
     this.getData();
     this.getContent();
   },
   getData(){
+    this.setData({
+      isLoading:true
+    })
     fetch.get('/swiper').then(res=>{
-      console.log(res)
+      // console.log(res)
       this.setData({
-        swiperData:res.data
+        swiperData:res.data,
+        isLoading:false
+      })
+    }).catch(err=>{
+      this.setData({
+        isLoading:false
       })
     })
   },
@@ -33,6 +42,7 @@ Page({
   jumpBook(event){
     const id = event.currentTarget.dataset.id;
     // console.log(event)
+    console.log(id);
     wx.navigateTo({
       url: `/pages/details/details?id=${id}`,
     })

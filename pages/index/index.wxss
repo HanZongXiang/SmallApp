@@ -27,6 +27,7 @@
 .content .box-left .img{
   width: 250rpx;
   height: 320rpx;
+  box-shadow: 0 0 8rpx 0 rgba(0,0,0,.5);
 }
 
 .box-right{
@@ -48,7 +49,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp:3;
   overflow: hidden;
-  line-height: 1.5;
+  line-height: 2.5;
   color:#555;
   font-size: 24rpx;
   font-weight: 400;
