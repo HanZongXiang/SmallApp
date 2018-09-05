@@ -11,6 +11,7 @@ const fetch = {
           'content-type': 'application/json'
         },
         success(res) {
+          // console.log(res)
           resolve(res.data)
         },
         fail(err){

@@ -7,6 +7,7 @@ Page({
   data: {
     swiperData: [],
     mainContent:[],
+    // title:[],
     indicatorDots: true,
     duration: 1000,
     isLoading:false
@@ -15,12 +16,13 @@ Page({
     this.getData();
     this.getContent();
   },
+  //获取轮播图数据
   getData(){
     this.setData({
       isLoading:true
     })
     fetch.get('/swiper').then(res=>{
-      // console.log(res)
+      console.log(res)
       this.setData({
         swiperData:res.data,
         isLoading:false
@@ -31,18 +33,25 @@ Page({
       })
     })
   },
+  //获取分类、内容
   getContent(){
     fetch.get('/category/books').then(res=>{
       console.log(res);
+      // let title = [];
+      // res.data.forEach((item,index) => {
+      //   title.push({title:item.title,index})
+      // })
       this.setData({
-        mainContent:res.data
+        mainContent:res.data,
+        // title:title
       })
+      // console.log(this.data.title)
     })
   },
+  //根据id跳转到书籍详情页面
   jumpBook(event){
     const id = event.currentTarget.dataset.id;
     // console.log(event)
-    console.log(id);
     wx.navigateTo({
       url: `/pages/details/details?id=${id}`,
     })

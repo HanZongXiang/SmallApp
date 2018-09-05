@@ -20,6 +20,7 @@ Page({
     }),
     this.getData()
   },
+  //根据标题获取文章详情
   getData(){
     this.setData({
       isLoading:true

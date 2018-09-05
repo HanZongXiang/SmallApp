@@ -22,6 +22,7 @@ Page({
     })
     this.getData()
   },
+  //根据书籍id获取数据
   getData(){
     this.setData({
       isLoading:true
@@ -39,6 +40,7 @@ Page({
       })
     })
   },
+  //根据id跳转到对应书籍的目录
   jumpCatalogs(event){
     // console.log(event)
     const id = event.currentTarget.dataset.id;

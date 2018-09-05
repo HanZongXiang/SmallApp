@@ -2,7 +2,7 @@
 <view class="container index">
   <image src='/static/imgs/loading.svg' class='loading' wx:if="{{isLoading}}"></image>
   <view wx:else>
-    <swiper indicator-dots='{{indicatorDots}}' autoplay interval='{{2000}}' duration='{{duration}}'>
+    <swiper indicator-dots='{{indicatorDots}}' autoplay interval='{{4000}}' duration='{{duration}}'>
       <block wx:for="{{swiperData}}" wx:key="{{index}}">
         <swiper-item bindtap="jumpBook" data-id="{{item.book._id}}">
           <image src='{{item.img}}' class='slide-image'></image>
@@ -11,7 +11,7 @@
     </swiper>
 
     <view class='main-content'>
-      <view class='content-item' wx:for="{{mainContent}}" wx:key="{{index}}" bindtap="jumpBook" data-id="{{item._id}}">
+      <view class='content-item' wx:for="{{mainContent}}" wx:key="{{index}}">
         <view class='title'>{{item.title}}</view>
         <view class='content' wx:for="{{item.books}}" wx:key="{{index}}">
           <view class='box-left'>

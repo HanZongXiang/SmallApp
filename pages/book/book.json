@@ -1,6 +1,10 @@
-{
-  "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTitleText": "文章详情",
-  "navigationBarTextStyle": "black"
-}
+  {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#409eff",
+    "navigationBarTitleText": "文章详情",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+      "wemark": "../../wemark/wemark"
+    }
+  }
+  

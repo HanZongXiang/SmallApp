@@ -11,6 +11,7 @@
 
 .book-top{
   display: flex;
+  align-items: center;
 }
 
 .book-top image{

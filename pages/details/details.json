@@ -1,1 +1,6 @@
-{}
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#409eff",
+  "navigationBarTitleText": "书籍简介",
+  "navigationBarTextStyle": "black"
+}
