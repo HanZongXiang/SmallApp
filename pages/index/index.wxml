@@ -1,38 +1,53 @@
 <!--index.wxml-->
-<view class="container index">
-  <image src='/static/imgs/loading.svg' class='loading' wx:if="{{isLoading}}"></image>
-  <view wx:else>
-    <swiper indicator-dots='{{indicatorDots}}' autoplay interval='{{4000}}' duration='{{duration}}'>
-      <block wx:for="{{swiperData}}" wx:key="{{index}}">
-        <swiper-item bindtap="jumpBook" data-id="{{item.book._id}}">
-          <image src='{{item.img}}' class='slide-image'></image>
-        </swiper-item>
-      </block>
-    </swiper>
+<view>
+  <view class='container index'>
+    <image src='/static/imgs/loading.svg' class='loading' wx:if='{{isLoading}}'></image>
+    <view wx:else>
+      <swiper indicator-dots='{{indicatorDots}}' autoplay interval='{{4000}}' duration='{{duration}}'>
+        <block wx:for='{{swiperData}}' wx:key='{{index}}'>
+          <swiper-item bindtap='jumpBook' data-id='{{item.book._id}}'>
+            <image src='{{item.img}}' class='slide-image'></image>
+          </swiper-item>
+        </block>
+      </swiper>
 
-    <view class='main-content'>
-      <view class='content-item' wx:for="{{mainContent}}" wx:key="{{index}}">
-        <view class='title'>{{item.title}}</view>
-        <view class='content' wx:for="{{item.books}}" wx:key="{{index}}">
-          <view class='box-left'>
-            <image src='{{item.img}}' class='img'></image>
-          </view>
-          <view class='box-right'>
-            <view class='book-title'>{{item.title}}</view>
-            <view class='book-desc'>{{item.desc}}</view>
-            <view class='author'>
-              <text class='author-left'>{{item.author}}</text>
-              <view class='author-right'>
-                <text class='update-time'>两天前  </text>
-                <text class='category'>后端开发  </text>
-                <text class='looknums'>{{item.looknums}}人在看</text>
+      <view class='main-content'>
+        <view class='content-item' wx:for='{{mainContent}}' wx:key='{{index}}'>
+          <view class='title'>{{item.title}}</view>
+          <view class='content' wx:for='{{item.books}}' wx:key='{{index}}' wx:for-item='bookItem' bindtap='jumpBook' data-id='{{bookItem._id}}'>
+            <view class='box-left'>
+              <image src='{{bookItem.img}}' class='img'></image>
+            </view>
+            <view class='box-right'>
+              <view class='book-title'>{{bookItem.title}}</view>
+              <view class='book-desc'>{{bookItem.desc}}</view>
+              <view class='author'>
+                <text class='author-left'>{{bookItem.author}}</text>
+                <view class='author-right'>
+                  <text class='update-time'>两天前  </text>
+                  <text class='category'>{{item.title}}  </text>
+                  <text class='looknums'>{{bookItem.looknums}}人在看</text>
+                </view>
               </view>
             </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
-  
 
+  </view>
+
+  <!-- 下拉加载 -->
+  <view hidden='{{isLoading}}'>
+    <view class='hasmore' wx:if='{{hasmore}}'>
+      <image src='/static/imgs/loading10.svg'></image>
+      <text>数据正拼命加载中...</text>
+    </view>
+
+    <view hidden='{{hasmore}}' class='no-more'>
+      <text>已经到底了</text>
+      <text class='line'></text>
+    </view>
+  </view>
 </view>
+

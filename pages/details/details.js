@@ -48,12 +48,38 @@ Page({
       url: `/pages/catalogs/catalogs?id=${id}`,
     })
   },
+  //点击按钮收藏
+  handleCollect(){
+    let book = this.data.book;
+    if(book.isCollect == 0){
+      book.isCollect = 1;
+      this.setData({
+        book
+      });
+      wx.showToast({
+        title: '收藏成功！',
+      })
+    }else{
+      book.isCollect = 0;
+      this.setData({
+        book
+      });
+      wx.showToast({
+        title: '取消收藏成功！',
+      })
+    }
+  }
+    ,
   showCatalog(){
     wx.navigateTo({
       url: `/pages/catalogs/catalogs?id=${this.data.bookId}`,
     })
   },
   onShareAppMessage: function () {
-    
+    return {
+      title:this.data.bookData.title,
+      path:`/pages/details/details?id=${this.data.bookId}`,
+      imgUrl:this.data.bookData.img
+    }
   }
 })

@@ -1,52 +1,92 @@
 //index.js
 //获取应用实例
-import {fetch} from "../../utils/util.js"
+import {fetch,login} from "../../utils/util.js"
 const app = getApp()
 
 Page({
   data: {
     swiperData: [],
     mainContent:[],
-    // title:[],
     indicatorDots: true,
     duration: 1000,
-    isLoading:false
+    isLoading:false,
+    pn:1,
+    hasmore:true
   },
   onLoad: function () {
     this.getData();
     this.getContent();
+    login()
   },
   //获取轮播图数据
   getData(){
     this.setData({
       isLoading:true
     })
-    fetch.get('/swiper').then(res=>{
-      console.log(res)
-      this.setData({
-        swiperData:res.data,
-        isLoading:false
-      })
-    }).catch(err=>{
-      this.setData({
-        isLoading:false
+    return new Promise((resolve,reject)=>{
+      fetch.get('/swiper').then(res => {
+        // console.log(res)
+        resolve();
+        this.setData({
+          swiperData: res.data,
+          isLoading: false
+        })
+      }).catch(err => {
+        reject(err)
+        this.setData({
+          isLoading: false
+        })
       })
     })
   },
   //获取分类、内容
   getContent(){
-    fetch.get('/category/books').then(res=>{
-      console.log(res);
-      // let title = [];
-      // res.data.forEach((item,index) => {
-      //   title.push({title:item.title,index})
-      // })
-      this.setData({
-        mainContent:res.data,
-        // title:title
+    return new Promise((resolve,reject)=>{
+      fetch.get('/category/books').then(res => {
+        // console.log(res);
+        resolve();
+        this.setData({
+          mainContent: res.data,
+        })
       })
-      // console.log(this.data.title)
     })
+  },
+  //获取更多书籍列表内容
+  getMoreContent(){
+    return fetch.get('/category/books',{
+      pn:this.data.pn
+    })
+  },
+  //下拉刷新
+  onPullDownRefresh(){
+    Promise.all([this.getData(),this.getContent()]).then(()=>{
+      this.setData({
+        hasmore:true,
+        pn:1,
+        isLoading:false
+      });
+      wx.stopPullDownRefresh();
+    })
+  },
+  //触底获取更多书籍
+  onReachBottom(){
+    if(this.data.hasmore){
+      this.setData({
+        pn:this.data.pn+1
+      })
+      console.log(this.data.pn);
+      this.getMoreContent().then(res=>{
+        let newMainContent = [...this.data.mainContent,...res.data];
+        this.setData({
+          mainContent:newMainContent
+        })
+        if(res.data.length<2){
+          this.setData({
+            hasmore:false
+          })
+        }
+      })
+    }
   },
   //根据id跳转到书籍详情页面
   jumpBook(event){

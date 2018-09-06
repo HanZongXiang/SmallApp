@@ -17,6 +17,7 @@
 .book-top image{
   width: 93px;
   height: 110px;
+  box-shadow: 0 0 8rpx 0 rgba(0,0,0,.5);
 }
 
 .book-top .main-msg{
@@ -92,7 +93,7 @@
   font-weight: 700;
   color:#333;
   position: relative;
-  bottom:1px;
+  bottom:2px;
 }
 
 .box-left .catalogs{

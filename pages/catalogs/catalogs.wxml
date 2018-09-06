@@ -1,10 +1,10 @@
 <!--pages/catalogs/catalogs.wxml-->
-<image src='/static/imgs/loading3.svg' class='loading' wx:if="{{isLoading}}"></image>
+<image src='/static/imgs/loading7.svg' class='loading' wx:if='{{isLoading}}'></image>
 <view class='container catalog' wx:else>
   
   <view>
-    <view class='catalog-wrap' wx:for="{{catalogData}}" wx:key="{{index}}">
-      <navigator url="{{'/pages/book/book?id='+item._id+'&bookId='+bookId}}" class='catalogs' class='catalog-title'>
+    <view class='catalog-wrap' wx:for='{{catalogData}}' wx:key='{{index}}'>
+      <navigator url="{{'/pages/book/book?id='+item._id+'&bookId='+bookId}}" class='catalog-title'>
         {{item.title}}
       </navigator>
     </view>

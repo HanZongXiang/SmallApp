@@ -62,3 +62,51 @@
   font-size: 24rpx;
   color:#666;
 }
+
+.hasmore{
+  margin:40rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color:#555;
+}
+
+.hasmore image{
+  width:50rpx;
+  height:50rpx;
+}
+
+.hasmore text{
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-left:10px; 
+}
+
+.no-more{
+  position: relative;
+  line-height: 160rpx;
+  height:160rpx;
+  text-align: center;
+  background: #f1f1f1;
+  font-size: 14px;
+  color:#9e9e9e;
+}
+
+.no-more text{
+  position: relative;
+  z-index: 2;
+  background: #f1f1f1;
+  padding:0 40rpx;
+}
+
+.no-more .line{
+  height: 1rpx;
+  position:absolute;
+  z-index: 1;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:600rpx;
+  background: #e9e9e9;
+}

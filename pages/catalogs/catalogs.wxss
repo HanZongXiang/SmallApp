@@ -10,6 +10,7 @@
 .catalog-wrap{
   padding-left: 20rpx;
   border-bottom:2rpx solid #333;
+  text-overflow:ellipsis;
 }
 
 .catalog .catalog-title{

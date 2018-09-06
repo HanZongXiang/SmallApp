@@ -127,8 +127,8 @@ Page({
       this.setData({
         titleId:catalog[this.data.index-1]._id
       })
+      this.getData();
     }
-    this.getData();
   },
   // toggleTitle(){
   //   wx.setNavigationBarTitle({

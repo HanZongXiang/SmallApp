@@ -1,5 +1,5 @@
 <view class='details'>
-  <image src='/static/imgs/loading2.svg' class='loading' wx:if="{{isLoading}}"></image>
+  <image src='/static/imgs/loading2.svg' class='loading' wx:if='{{isLoading}}'></image>
   <view wx:else>
     <view class='book-details'>
       <view class='book-top'>
@@ -12,10 +12,10 @@
         </view>
       </view>
       <view class='book-bottom'>
-        <button class='btn'>
-        收藏
+        <button class='btn' bindtap='handleCollect'>
+        {{book.isCollect == 0? '收藏' : '已收藏'}}
         </button>
-        <button class='btn'>
+        <button class='btn' open-type='share'>
         分享好友
         </button>
       </view>
@@ -36,7 +36,7 @@
     </view>
     <view class='divider'></view>
     <view class='btn-wrap'>
-      <button class='btn' bindtap="jumpCatalogs" data-id="{{bookId}}">阅读该书籍</button>
+      <button class='btn' bindtap='jumpCatalogs' data-id='{{bookId}}'>阅读该书籍</button>
     </view>
   </view>
   

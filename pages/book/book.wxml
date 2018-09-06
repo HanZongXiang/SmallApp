@@ -1,23 +1,21 @@
 <!--pages/book/book.wxml-->
-<import src="/towxml/entry.wxml"/>
-
 <view>
-  <image class='loading' src='/static/imgs/loading4.svg' wx:if="{{isLoading}}"></image>
+  <image class='loading' src='/static/imgs/loading6.svg' wx:if='{{isLoading}}'></image>
 
   <view class='book' wx:else>
     <view class='wemark-wrap' style="{{'font-size:'+font+'rpx'}}">
-      <wemark md="{{article}}" highlight type="rich-text"></wemark>
+      <wemark md='{{article}}' highlight type='rich-text'></wemark>
     </view>
 
     <scroll-view scroll-y class='{{isShow ? "catalog-active" : ""}} catalog-menu' >
-      <view class='catalog-item' wx:for="{{catalog}}" wx:key="{{index}}" bindtap='handleGet' data-id="{{item._id}}">
+      <view class='catalog-item' wx:for='{{catalog}}' wx:key='{{index}}' bindtap='handleGet' data-id='{{item._id}}'>
         <!-- <navigator> -->
           {{item.title}}
         <!-- </navigator> -->
       </view>
     </scroll-view>
 
-    <view class='mask' wx:if="{{isShow}}" bindtap="handleToggle"></view>
+    <view class='mask' wx:if='{{isShow}}' bindtap='handleToggle'></view>
 
     <!-- 菜单 -->
     <view class='menu'>
