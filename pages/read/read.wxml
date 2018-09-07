@@ -1,2 +1,39 @@
 <!--pages/read/read.wxml-->
-<text>pages/read/read.wxml</text>
+<view class='wrapper'>
+  <view wx:if='{{isLoading}}'>
+    <image src='/static/imgs/loading-person.svg' class='loading'></image>
+  </view>
+
+  <view hidden='isLoading' class='content' wx:for='{{readContent}}' wx:key='{{index}}'>
+    <view class='box-left'>
+      <image src='{{item.book.img}}' class='img'></image>
+    </view>
+    <view class='box-right'>
+      <text class='title'>{{item.book.title}}</text>
+      <view class='section'>
+        <text>书籍  {{item.title.index+1}}/{{item.title.total}}  章节</text>
+      </view>
+      <view class='center'>
+        <view class='left'>
+          <progress class='mar' percent='{{item.title.percent}}' color='pink' active/>
+          <text class='last-read'>上次查看:{{item.title.title}}</text>
+        </view>
+        <view class='right'>
+          <view>
+            <text>已看{{item.title.percent}}%</text>
+          </view>
+          <view>
+            <text class='time'>{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='bottom'>
+        <navigator url="{{'/pages/book/book?id='+item.title._id+'&bookId='+item.title.bookId}}">
+          <button class='btn'>继续阅读</button>
+        </navigator>
+        
+        <button class='btn' bindtap='jumpReading' data-id='{{item.book._id}}'>查看文档</button>
+      </view> 
+    </view>
+  </view>
+</view>

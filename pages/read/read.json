@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText":"我的阅读"
+  "navigationBarTitleText":"我的阅读",
+  "enablePullDownRefresh": true
 }

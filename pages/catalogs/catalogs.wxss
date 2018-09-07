@@ -4,12 +4,12 @@
   padding-top:40rpx;
   padding-bottom: 100rpx;
   font-size: 28rpx;
-  color:#000;
+  color:rgb(117, 103, 103);
 }
 
 .catalog-wrap{
-  padding-left: 20rpx;
-  border-bottom:2rpx solid #333;
+  padding-left: 40rpx;
+  border-bottom:2rpx solid rgb(169, 170, 166);
   text-overflow:ellipsis;
 }
 

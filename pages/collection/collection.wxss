@@ -1,0 +1,25 @@
+/* pages/collection/collection.wxss */
+.wrapper{
+  padding:75rpx 20rpx 20rpx 20rpx;
+}
+
+.wrapper .collection{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.wrapper .collection .collection-item{
+  width:355rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 22rpx;
+  align-items: center;
+  padding-bottom:70rpx;
+}
+
+.wrapper .collection-item .img{
+  width:230rpx;
+  height:260rpx;
+  box-shadow: 0 0 10rpx 0 rgba(0,0,0,.8);
+  margin-bottom: 15rpx; 
+}

@@ -2,7 +2,7 @@
 @import '/static/iconfont/iconfont.wxss';
 
 .book{
-  padding:0 20rpx;
+  padding:0 20rpx 75rpx;
 }
 
 .book .menu{

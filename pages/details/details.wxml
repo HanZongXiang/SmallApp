@@ -31,7 +31,7 @@
         <view class='catalogs'>共{{book.length}}章</view>
       </view>
       <view class='box-right'>
-        <view class='update-time'>更新于两天前></view>
+        <view class='update-time'>更新于{{time}}></view>
       </view>
     </view>
     <view class='divider'></view>

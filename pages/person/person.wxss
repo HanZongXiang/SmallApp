@@ -1,1 +1,65 @@
 /* pages/person/person.wxss */
+.wrapper{
+  margin:0;
+  padding:0;
+}
+
+.wrapper .top{
+  display: flex;
+  justify-content: flex-start;
+  background:#409eff;
+  padding:50rpx 0 25rpx 25rpx;
+}
+
+.wrapper .top .box-left image{
+  width:125rpx;
+  height: 125rpx;
+  border-radius: 50%;
+}
+
+.wrapper .top .box-right{
+  display: flex;
+  flex-direction: column;
+  color:#fff;
+  margin-left:20rpx;
+}
+
+.wrapper .top .box-right .desc{
+  font-size: 28rpx;
+  line-height: 3;
+}
+
+.wrapper .center{
+  background: #409eff;
+  display: flex;
+  justify-content: space-between;
+  padding:0 150rpx 25rpx 150rpx;
+}
+
+.wrapper .collect,.wrapper .concern{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 30rpx;
+  color:#fff;
+  line-height: 1.5;
+}
+
+.wrapper .bottom{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper .bottom image{
+  width:300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  margin:150rpx 0 40rpx 0;
+}
+
+.wrapper .bottom text{
+  font-size: 40rpx;
+  color:#0f78e0;
+}

@@ -1,53 +1,64 @@
 // pages/person/person.js
+import {fetch} from '../../utils/util.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo:{},
+    isLoading:false,
+    total:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getCollectTotal();
+    this.setData({
+      isLoading:true
+    });
+    wx.getUserInfo({
+      success:data=>{
+        // console.log(data);
+        this.setData({
+          userInfo:data.userInfo,
+          isLoading:false
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  jumpCollection(){
+    wx.navigateTo({
+      url: '/pages/collection/collection',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  getCollectTotal(){
+    return new Promise((resolve,reject)=>{
+      this.setData({
+        isLoading:true
+      })
+      fetch.get('/collection/total').then((res) => {
+        // console.log(res);
+        resolve(res);
+        let total = this.data.total;
+        this.setData({
+          total: res.data,
+        })
+      })
+    }) 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.getCollectTotal().then(()=>{
+      this.setData({
+        isLoading:false
+      })
+    });
+    wx.stopPullDownRefresh();
   },
 
   /**

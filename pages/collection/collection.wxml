@@ -1,0 +1,15 @@
+<!--pages/collection/collection.wxml-->
+<view wx:if='{{isLoading}}'>
+  <image src='/static/imgs/loading8.svg' class='loading'></image>
+</view>
+
+<view class='wrapper' hidden='{{isLoading}}'>
+
+  <view class='collection'>
+    <view class='collection-item' wx:for='{{collections}}' wx:key='{{index}}' bindtap='jumpCollect' data-id='{{item.book._id}}'>
+      <image class='img' src='{{item.book.img}}'></image>
+      <text class='title'>{{item.book.title}}</text>
+    </view>
+  </view>
+  
+</view>

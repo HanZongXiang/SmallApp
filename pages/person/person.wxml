@@ -1,2 +1,33 @@
 <!--pages/person/person.wxml-->
-<text>pages/person/person.wxml</text>
+<view class='wrapper'>
+  <view wx:if='{{isLoading}}'>
+    <image src='/static/imgs/loading-person.svg' class='loading'></image>
+  </view>
+
+  <view class='content' hidden='{{isLoading}}'>
+    <view class='top'>
+      <view class='box-left'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view>
+      <view class='box-right'>
+        <text class='nickname'>{{userInfo.nickName}}</text>
+        <text class='desc'>这家伙很懒，什么也没留下</text>
+      </view>
+    </view>
+    <view class='center'>
+      <view class='collect' bindtap='jumpCollection'>
+        <text>{{total}}</text>
+        <text>收藏</text>
+      </view>
+      <view class='concern'>
+        <text>1</text>
+        <text>关注</text>
+      </view>
+    </view>
+    <view class='bottom'>
+      <image src='/static/imgs/logo.jpg'></image>
+      <text>有 书 共 读</text>
+    </view>
+  </view>
+  
+</view>

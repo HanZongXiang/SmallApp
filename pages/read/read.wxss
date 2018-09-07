@@ -1,1 +1,86 @@
 /* pages/read/read.wxss */
+.wrapper{
+  padding:50rpx 45rpx 0 25rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrapper .content{
+  display: flex;
+  margin-bottom:35rpx;
+}
+
+.wrapper .content .box-left .img{
+  width: 230rpx;
+  height:280rpx;
+  box-shadow: 0 0 10rpx 0 rgba(0,0,0,.8);
+  margin-right:10rpx;
+}
+
+.wrapper .content .box-right .title{
+  font-size: 28rpx;
+  margin-bottom:40rpx;
+}
+
+.content .box-right .section text{
+  font-size: 24rpx;
+  color:#555;
+  margin-bottom: 40rpx;
+}
+
+.content .box-right .center{
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  width:230px;
+}
+
+.box-right .center text{
+  font-size: 22rpx;
+  color:#888;
+}
+
+.box-right .center .left{
+  line-height: 1.5;
+}
+
+.box-right .center .left .last-read{
+  display: block;
+  width:350rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top:20rpx;
+}
+
+.box-right .center .left progress{
+  width:350rpx;
+}
+
+/* .box-right .center .right{
+  line-height: 1.5;
+} */
+
+.box-right .center .right{
+  margin-top:-10px;
+}
+
+.box-right .center .right .time{
+  position: relative;
+  top:-2px;
+}
+
+.box-right .bottom{
+  display: flex;
+  justify-content: space-between;
+  margin-top:20rpx;
+}
+
+.box-right .bottom .btn{
+  width:175rpx;
+  height:70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  text-align: center;
+}

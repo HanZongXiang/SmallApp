@@ -9,7 +9,8 @@ Page({
     isLoading:false,
     bookId:"",
     bookData:{},
-    book:{}
+    book:{},
+    time:""
   },
 
   /**
@@ -29,10 +30,16 @@ Page({
     })
     fetch.get(`/book/${this.data.bookId}`).then(res=>{
       console.log(res)
+      let time = this.data.time;
+      let updateTime = res.data.updateTime;
+      let Y = (new Date(updateTime).getFullYear());
+      let M = (new Date(updateTime).getMonth() + 1);
+      let D = (new Date(updateTime).getDate());
       this.setData({
         book:res,
         bookData:res.data,
-        isLoading:false
+        isLoading:false,
+        time: `${Y}年-${M}月-${D}日`
       })
     }).catch(err=>{
       this.setData({
@@ -50,26 +57,34 @@ Page({
   },
   //点击按钮收藏
   handleCollect(){
-    let book = this.data.book;
-    if(book.isCollect == 0){
-      book.isCollect = 1;
-      this.setData({
-        book
-      });
-      wx.showToast({
-        title: '收藏成功！',
-      })
-    }else{
-      book.isCollect = 0;
-      this.setData({
-        book
-      });
-      wx.showToast({
-        title: '取消收藏成功！',
-      })
-    }
-  }
-    ,
+    let bookId = this.data.bookId;
+    fetch.post('/collection',{bookId}).then(res=>{
+      if(res.code == 200){
+        wx.showToast({
+          title: '收藏成功',
+        })
+        let book = { ...this.data.book }
+        book.isCollect = 1;
+        this.setData({
+          book
+        })
+      }else{
+        let arr = [this.data.bookId];
+        fetch.post('/collection/delete',{ arr }).then(res=>{
+          if(res.code == 200){
+            wx.showToast({
+              title: '取消收藏成功',
+            });
+            let book = { ...this.data.book };
+            book.isCollect = 0;
+            this.setData({
+              book
+            })
+          }
+        })
+      }
+    })
+  },
   showCatalog(){
     wx.navigateTo({
       url: `/pages/catalogs/catalogs?id=${this.data.bookId}`,
