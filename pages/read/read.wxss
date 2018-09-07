@@ -72,6 +72,7 @@
 }
 
 .box-right .bottom{
+  margin-left:40rpx;
   display: flex;
   justify-content: space-between;
   margin-top:20rpx;
