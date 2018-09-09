@@ -25,7 +25,7 @@
 }
 
 .wrapper .top .box-right .desc{
-  font-size: 28rpx;
+  font-size: 26rpx;
   line-height: 3;
 }
 

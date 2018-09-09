@@ -8,7 +8,7 @@ Page({
   data: {
     isLoading:false,
     pn: 1,
-    size: 6,
+    size: 10,
     collections:[]
   },
 
@@ -16,6 +16,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  },
+  onShow: function (options) {
     this.getCollection();
   },
   getCollection() {

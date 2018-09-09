@@ -84,9 +84,17 @@ Page({
   },
   //点击字体放大
   handleDecr(){
-    this.setData({
-      font:this.data.font+2
-    })
+    if (this.data.font > 44) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '字体太大会影响阅读',
+        showCancel: false
+      })
+    } else {
+      this.setData({
+        font: this.data.font + 2
+      });
+    }
   },
   //点击字体缩小
   handleIncr(){
@@ -130,11 +138,6 @@ Page({
       this.getData();
     }
   },
-  // toggleTitle(){
-  //   wx.setNavigationBarTitle({
-  //     title: this.data.title,
-  //   })
-  // },
   /**
    * 用户点击右上角分享
    */
