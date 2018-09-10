@@ -25,8 +25,9 @@
       </view>
     </view>
     <view class='bottom'>
-      <image src='/static/imgs/logo.jpg'></image>
-      <text>有 书 共 读</text>
+      <image src='/static/imgs/logo.png'></image>
+      <text>读 一 本 书</text>
+      <text>开 拓 一 片 世 界</text>
     </view>
   </view>
   

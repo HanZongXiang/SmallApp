@@ -43,7 +43,7 @@ Page({
   getContent(){
     return new Promise((resolve,reject)=>{
       fetch.get('/category/books').then(res => {
-        // console.log(res);
+        console.log(res);
         resolve();
         this.setData({
           mainContent: res.data,
